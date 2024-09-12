@@ -1,0 +1,23 @@
+Q-1. What is MongoDB?
+
+--> MongoDB is a powerful and flexible solution for handling modern data needs. As a leading NoSQL database, MongoDB offers a dynamic schema design, enabling developers to store and manage data in a way that aligns seamlessly with contemporary application requirements.
+
+Q-2. What id difference between MongoDB and SQL?
+
+--> 
+MongoDB:
+
+1. MongoDB is an open-source, cross-platform, and distributed document-based database built for ease of application development and scaling. 
+
+2. The term MongoDB is taken from the word "Humongous," which means "large, immense." The MongoDB database is designed to hold a large quantity of data while also performing quickly.
+
+3. MongoDB is not a Relational Database Management System (RDBMS). It's known as a "NoSQL" database. It differs from SQL-based databases because it does not normalize data under schemas and tables, and each table has a defined structure. It instead stores data in collections as JSON-based documents and does not impose schemas. It does not include the tables, rows, and columns seen in other SQL (RDBMS) databases.
+
+
+SQL:
+
+1. SQL is an abbreviation for Structured Query Language. SQL is a database communication language.
+
+2. SQL commands are used to perform operations such as updating or retrieving data from a database. SQL is commonly used in relational database management systems such as Oracle, Sybase, Microsoft SQL Server, Microsoft Access, Ingres, etc.
+
+3. Although most database systems employ SQL, they also have their own proprietary extensions that are often exclusively used on their system. However, common SQL commands like "Select", "Insert", "Update", "Delete", "Create", and "Drop" can be used to accomplish almost everything that one needs to do with a database.
