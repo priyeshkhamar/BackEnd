@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 10px;
+    background: #f8f9fa;
+}
