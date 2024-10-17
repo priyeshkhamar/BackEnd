@@ -9,7 +9,7 @@ const Dashboard = () => {
             }
         });
         localStorage.removeItem('token');
-        window.location.href = '/login'; // Redirect to login after logout
+        window.location.href = '/login'; 
     };
 
     const handleLogoutAll = async () => {
@@ -20,7 +20,7 @@ const Dashboard = () => {
             }
         });
         localStorage.removeItem('token');
-        window.location.href = '/login'; // Redirect to login after logging out from all devices
+        window.location.href = '/login';
     };
 
     return (
