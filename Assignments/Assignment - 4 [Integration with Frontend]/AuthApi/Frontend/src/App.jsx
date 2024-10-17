@@ -4,8 +4,7 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
 function App() {
-  const token = localStorage.getItem('token'); // To check if user is logged in
-
+  const token = localStorage.getItem('token'); 
   return (
     <Router>
       <div className="container">
