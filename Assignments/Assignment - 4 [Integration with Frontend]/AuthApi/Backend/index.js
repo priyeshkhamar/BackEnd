@@ -1,28 +1,17 @@
-// index.js
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const authRoutes = require('./routes/auth');
-const secureRoutes = require('./routes/secure');
-require('dotenv').config();
+const userRouter = require('./routes/userRoutes');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
-// MongoDB connection
-mongoose.connect('mongodb://localhost:27017/session-management', { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
-}).then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
-
-// Middleware to parse JSON
 app.use(express.json());
 
-// Routes
-app.use('/auth', authRoutes);   // Authentication routes
-app.use('/api', secureRoutes);  // Secured routes
+app.use(userRouter);
 
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+mongoose.connect('mongodb://localhost:27017/session_management');
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });

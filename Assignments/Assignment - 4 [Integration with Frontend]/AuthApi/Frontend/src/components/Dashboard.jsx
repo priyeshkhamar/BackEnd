@@ -1,19 +1,33 @@
-// src/components/Dashboard.jsx
-import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 const Dashboard = () => {
-    const history = useHistory();
-    const token = localStorage.getItem('token');
+    const handleLogout = async () => {
+        const token = localStorage.getItem('token');
+        await axios.post('http://localhost:3000/logout', {}, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        localStorage.removeItem('token');
+        window.location.href = '/login'; // Redirect to login after logout
+    };
 
-    if (!token) {
-        history.push('/login'); 
-        return null;
-    }
+    const handleLogoutAll = async () => {
+        const token = localStorage.getItem('token');
+        await axios.post('http://localhost:3000/logoutAll', {}, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        localStorage.removeItem('token');
+        window.location.href = '/login'; // Redirect to login after logging out from all devices
+    };
 
     return (
-        <div>
+        <div className="container mt-5">
             <h2>Welcome to the Dashboard</h2>
-            <p>This is a protected route that requires authentication.</p>
+            <button className="btn btn-danger m-2" onClick={handleLogout}>Logout from Current Device</button>
+            <button className="btn btn-warning m-2" onClick={handleLogoutAll}>Logout from All Devices</button>
         </div>
     );
 };

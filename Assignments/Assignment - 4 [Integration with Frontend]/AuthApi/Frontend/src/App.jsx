@@ -1,22 +1,24 @@
-// src/App.jsx
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
-import Navbar from './components/Navbar';
 
 function App() {
+  const token = localStorage.getItem('token'); // To check if user is logged in
+
   return (
     <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/" exact>
-          <h1>Welcome to the App</h1>
-        </Route>
-      </Switch>
+      <div className="container">
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={token ? <Dashboard /> : <Navigate to="/login" />}
+          />
+          <Route path="*" element={<Navigate to={token ? "/dashboard" : "/login"} />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
